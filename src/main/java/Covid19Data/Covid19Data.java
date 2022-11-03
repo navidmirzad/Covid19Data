@@ -1,5 +1,4 @@
-import java.io.File;
-import java.util.Date;
+package Covid19Data;
 
 public class Covid19Data {
 
@@ -12,6 +11,30 @@ public class Covid19Data {
     private int døde;
     private int indlagte;
     private String dato;
+
+    public String getRegion() {
+        return region;
+    }
+
+    public String getAldersgruppe() {
+        return aldersgruppe;
+    }
+
+    public int getBekræftedeTilfæde() {
+        return bekræftedeTilfæde;
+    }
+
+    public int getDøde() {
+        return døde;
+    }
+
+    public int getIndlagte() {
+        return indlagte;
+    }
+
+    public String getDato() {
+        return dato;
+    }
 
     public Covid19Data(String region, String aldersgruppe, int bekræftedeTilfæde, int døde, int indlagte, String dato) {
         this.region = region;
@@ -46,4 +69,15 @@ public class Covid19Data {
         this.dato = dato;
     }
 
+    @Override
+    public String toString() {
+        return "\n " +
+                "Region: " + region + " | " +
+                "Aldersgruppe: " + aldersgruppe + " | " +
+                "BekræftedeTilfæde: " + bekræftedeTilfæde + " | " +
+                "Døde=" + døde + " | " +
+                "Indlagte: " + indlagte + " | " +
+                "Dato: " + dato + '\'' +
+                '}';
+    }
 }

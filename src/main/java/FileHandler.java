@@ -1,3 +1,5 @@
+import Covid19Data.Covid19Data;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -6,8 +8,10 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-    public void loadData() throws IOException {
+    public ArrayList<Covid19Data> loadData() throws IOException {
         Scanner reader = new Scanner(new File("data/11_noegletal_pr_region_pr_aldersgruppe.csv"), StandardCharsets.ISO_8859_1);
+
+        ArrayList<Covid19Data> dataObjekter = new ArrayList<>();
 
         reader.nextLine();
 
@@ -16,10 +20,9 @@ public class FileHandler {
 
             Covid19Data dataObjekt = parseCSVLine(line);
 
-            ArrayList<Covid19Data> dataObjekter = new ArrayList<>();
             dataObjekter.add(dataObjekt);
-            System.out.println(dataObjekter);
         }
+        return dataObjekter;
     }
 
     private Covid19Data parseCSVLine(String line) {
@@ -36,9 +39,4 @@ public class FileHandler {
         return dataObjekt;
     }
 
-    public static void main(String[] Args) throws IOException {
-        FileHandler filehandler = new FileHandler();
-        filehandler.loadData();
-        System.out.println(filehandler);
-    }
 }
